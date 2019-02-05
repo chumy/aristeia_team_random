@@ -110,5 +110,5 @@ if (isset($_POST['equipo']) && $_POST['equipo'] == "1")
 
 
 
-include GEN_MODULES.'/footer.php';
+include RAN_MODULES.'/footer.php';
 ?>
