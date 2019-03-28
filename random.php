@@ -20,6 +20,7 @@ if (isset($_POST['equipo']) && $_POST['equipo'] == "1")
     $smoke=($_POST['smoke'] == "on") ? '3' : '' ;
     $human=($_POST['human'] == "on") ? '4' : '' ;
     $legendary=($_POST['legendary'] == "on") ? '5' : '' ;
+    $chemical=($_POST['chemical'] == "on") ? '6' : '' ;
     
     
     $where = (strlen($core) > 0) ? $core.',' : '';
@@ -27,6 +28,7 @@ if (isset($_POST['equipo']) && $_POST['equipo'] == "1")
     $where .= (strlen($smoke) > 0) ? $smoke.',' : '';
     $where .= (strlen($human) > 0) ? $human.',' : '';
     $where .= (strlen($legendary) > 0) ? $legendary.',' : '';
+    $where .= (strlen($chemical) > 0) ? $chemical.',' : '';
     
     // Evitar el envio vacio
     $where = (strlen($where) < 1) ? '1' : $where;
@@ -53,17 +55,17 @@ if (isset($_POST['equipo']) && $_POST['equipo'] == "1")
     {
         $error= "No se puede aplicar el Mod Zlavin junto con el Mod Petiso. Insuficiente numero de aristos";
         $petiso ="off";
-        if ($zlavin == "on" && $numAristos <= $numJugadores*2)
+        if ($zlavin == "on" && $numAristos < $numJugadores*2)
         {
             $zlavin = "off";
         }
     }
-    elseif ($zlavin == "on" && $numAristos <= $numJugadores*2)
+    elseif ($zlavin == "on" && $numAristos < $numJugadores*2)
     {
         $error= "No se puede aplicar el Mod Zlavin. Insuficiente número de aristos";
         $zlavin = "off";
     }
-    elseif ($petiso == "on" && $numAristos <= $numJugadores*2){
+    elseif ($petiso == "on" && $numAristos < $numJugadores*2){
         $error= "No se puede aplicar el Mod Petiso. Insuficiente número de aristos";
         $petiso = "off";
     }
@@ -79,20 +81,8 @@ if (isset($_POST['equipo']) && $_POST['equipo'] == "1")
     {
         
         shuffle($rand);
-        //petiso
-        /*if ( $petiso == "on" && $numAristos < $numJugadores )
-        {
-            $listaEquipo1 = array_slice(array_random($rand,$numJugadores),0,$numJugadores);
-            shuffle($rand);
-            $listaEquipo2 = array_slice(array_random($rand,$numJugadores),0,$numJugadores); 
-        }
-        else
-        {*/
-            //zlavin
-            
-            $listaEquipo1= array_slice($rand, 0, $numJugadores);
-            $listaEquipo2= array_slice($rand, $numJugadores, $numJugadores);
-        //}
+        $listaEquipo1= array_slice($rand, 0, $numJugadores);
+         $listaEquipo2= array_slice($rand, $numJugadores, $numJugadores);
     }else{
         shuffle($rand);
         $listaEquipo1 = array_slice(array_random($rand,$numJugadores),0,$numJugadores);
@@ -100,7 +90,7 @@ if (isset($_POST['equipo']) && $_POST['equipo'] == "1")
         $listaEquipo2 = array_slice(array_random($rand,$numJugadores),0,$numJugadores);
     }
     
-    //$error= "z ".$zlavin." - p ".$petiso." - Ar ".$numAristos." - NJ ".$numJugadores;
+    #$error= "z ".$zlavin." - p ".$petiso." - Ar ".$numAristos." - NJ ".$numJugadores;
     include RAN_MODULES.'/equipo.php';
     
     $database->CloseConnection;

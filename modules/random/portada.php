@@ -22,12 +22,11 @@
 			<input type="checkbox" name="legendary" <?=($_POST['legendary'] == "on") ? 'checked' : '';?> >
 			<span class="checkmark"></span>
 		</label>
+		<label class="container">Chemical Brothers
+			<input type="checkbox" name="chemical" <?=($_POST['chemical'] == "on") ? 'checked' : '';?> >
+			<span class="checkmark"></span>
+		</label>
 		
-	    <!--  span><input type="checkbox" name="core" <?=($_POST['core'] == "on") ? 'checked' : '';?> >Core</span><br>
-		<span><input type="checkbox" name="soldiers" <?=($_POST['soldiers'] == "on") ? 'checked' : '';?> >Soldiers Of Fortune</span><br>
-		<span><input type="checkbox" name="smoke" <?=($_POST['smoke'] == "on") ? 'checked' : '';?> >Smoke &amp; Mirrors</span><br>
-		<span><input type="checkbox" name="human" <?=($_POST['human'] == "on") ? 'checked' : '';?> >Human Fate</span><br>
-		<span><input type="checkbox" name="legendary" <?=($_POST['legendary'] == "on") ? 'checked' : '';?> >Legendary Bahadurs</span><br -->
 	</div>
 	<div id="mods" class="divsmedio border_blanco" >	
 		<h2 class="textoPortada">Mods</h2>    
@@ -46,14 +45,6 @@
 			<input type="checkbox" name="petiso" <?=($_POST['petiso'] == "on") ? 'checked' : '';?> >
 			<span class="checkmark"></span>
 		</label>
-    <!--span>Numero de aristos aleatorios por jugador<select name="jugadores">
-		  <option value="4" selected="">Todos</option>
-		  <option value="3">3</option>
-		  <option value="2">2</option>
-		  <option value="1">1</option>
-</select></span><br>
-    <span><input type="checkbox" name="zlavin" <?=($_POST['zlavin'] == "on") ? 'checked' : '';?> >Habilitar Zlavin</span><br>
-    <span><input type="checkbox" name="petiso" <?=($_POST['petiso'] == "on") ? 'checked' : '';?> >Habilitar Petiso</span><br-->
 	</div>
 	<div id="submitdiv" class="divsfull" >
 		<div  style="margin:auto">
